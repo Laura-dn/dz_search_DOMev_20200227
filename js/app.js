@@ -50,6 +50,8 @@ function addSearching(ev) {
         DOMInputs[i].value = "";
     }
 
+    console.log(DOMId);
+
     DOMPreSearch.innerHTML = "";
     DOMInput.value = DOMValue;
 
