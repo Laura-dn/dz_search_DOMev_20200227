@@ -1,9 +1,3 @@
-let DOMInputs = document.querySelectorAll("input");
-
-for(let i = 0; i < DOMInputs.length; i++) {
-    DOMInputs[i].addEventListener("keyup", preSearch);
-}
-
 function viewCars() {
     let DOMTable = document.querySelector("table");
     
@@ -75,9 +69,14 @@ function addSearching(ev) {
             DOMTable.append(DOMTr);
         }
     }
-
-    console.dir(ev);
-    console.dir(DOMInput);
 }
 
 viewCars();
+
+(function() {
+    let DOMInputs = document.querySelectorAll("input");
+
+    for(let i = 0; i < DOMInputs.length; i++) {
+        DOMInputs[i].addEventListener("keyup", preSearch);
+    }
+})();
