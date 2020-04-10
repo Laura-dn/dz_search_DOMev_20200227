@@ -1,3 +1,5 @@
+* {box-sizing: border-box;}
+
 body {
     width: 100%;
     padding: 0;
@@ -12,16 +14,32 @@ body {
 }
 
 h3:first-child {margin-top: 0;}
-h3, h4, article {text-align: center;}
+h3, h4 {text-align: center;}
+
+article {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+article>div {
+    width: 25%;
+}
 
 input {
-    width: 25%;
+    width: 100%;
     border-radius: 6px;
-    padding: 5px 10px;
+    padding: 5px 0;
     text-align: center;
+}
+
+.preSearch {
+    width: 100%;
 }
 
 table, td {
     border: 1px solid indigo;
     border-collapse: collapse;
 }
+
+table {margin-top: 20px;}
