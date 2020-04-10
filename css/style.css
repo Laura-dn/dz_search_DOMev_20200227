@@ -35,7 +35,21 @@ input {
 
 .preSearch {
     width: 100%;
+    background-color: white;
+    border: 1px solid black;
 }
+
+.preSearch>div {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.preSearch>div:hover {
+    background-color: rgb(180, 180, 255);
+    cursor: pointer;
+}
+
+.reFind {background-color: yellow;}
 
 table, td {
     border: 1px solid indigo;

@@ -24,9 +24,60 @@ function viewCars() {
 }
 
 function preSearch(ev) {
-    let DOMId = ev.target.id;
+    let DOMId = ev.target.id,
+        DOMInput = document.querySelector("#" + DOMId).value,
+        re = new RegExp(DOMInput, "gi"),
+        DOMPreSearch = document.querySelector("." + DOMId),
+        spanStart = "<span class='reFind' title='" + DOMId + "'>",
+        spanEnd = "</span>";
+
+    DOMPreSearch.innerHTML = "";
+    
+    for(let i = 0; i < cars.length; i++) {
+        if(re.test(cars[i][DOMId])) {
+            let DOMDiv = document.createElement("div");
+
+            DOMDiv.innerHTML = cars[i][DOMId].replace(re, (spanStart + DOMInput.toUpperCase() + spanEnd));
+            DOMDiv.addEventListener("click", addSearching);
+            DOMPreSearch.append(DOMDiv);
+        }
+    }
+}
+
+function addSearching(ev) {
+    let DOMValue = ev.target.textContent,
+        DOMId = ev.target.childNodes[0].title,
+        DOMInput = document.querySelector("#" + DOMId),
+        DOMPreSearch = document.querySelector("." + DOMId),
+        DOMTable = document.querySelector("table"),
+        DOMInputs = document.querySelectorAll("input");
+
+    for(let i = 0; i < DOMInputs.length; i++) {
+        DOMInputs[i].value = "";
+    }
+
+    DOMPreSearch.innerHTML = "";
+    DOMInput.value = DOMValue;
+
+    for(let i = 0; i < cars.length; i++) {
+        if(DOMValue == cars[i][DOMId]) {
+            let DOMTr = document.createElement("tr"),
+                data = ["BRAND", "OVD", "COLOR"];
+
+            for(let j = 0; j < data.length; j++) {
+                let DOMTd = document.createElement("td");
+    
+                DOMTd.innerHTML = cars[i][data[j]];
+                DOMTr.append(DOMTd);
+            }
+            
+            DOMTable.innerHTML = "";
+            DOMTable.append(DOMTr);
+        }
+    }
 
     console.dir(ev);
+    console.dir(DOMInput);
 }
 
 viewCars();
