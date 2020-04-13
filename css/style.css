@@ -22,9 +22,7 @@ article {
     justify-content: space-around;
 }
 
-article>div {
-    width: 25%;
-}
+article>div {width: 25%;}
 
 input {
     width: 100%;
