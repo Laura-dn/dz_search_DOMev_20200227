@@ -1,3 +1,4 @@
+//1. Используя html-js заготовку из архива отрисуйте информацию обо всех автомобилях в массиве cars (ovd, brand, color)
 function viewCars() {
     let DOMTable = document.querySelector("table");
     
@@ -72,12 +73,12 @@ function addSearching(ev) {
     }
 }
 
-viewCars();
-
 (function() {
     let DOMInputs = document.querySelectorAll("input");
 
     for(let i = 0; i < DOMInputs.length; i++) {
         DOMInputs[i].addEventListener("keyup", preSearch);
     }
+
+    viewCars();
 })();
