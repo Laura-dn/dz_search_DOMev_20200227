@@ -38,9 +38,10 @@ function preSearch(ev) {
     }
 }
 
+//При клике на выделенную желтым область ошибка. target = span, а addSearching разбирает div
 function addSearching(ev) {
     let DOMValue = ev.target.textContent,
-        DOMId = ev.target.childNodes[0].title,
+        DOMId = ev.target.children[0].title,
         DOMInput = document.querySelector("#" + DOMId),
         DOMPreSearch = document.querySelector("." + DOMId),
         DOMTable = document.querySelector("table"),
@@ -50,9 +51,8 @@ function addSearching(ev) {
         DOMInputs[i].value = "";
     }
 
-    console.log(DOMId);
-
     DOMPreSearch.innerHTML = "";
+    DOMTable.innerHTML = "";
     DOMInput.value = DOMValue;
 
     for(let i = 0; i < cars.length; i++) {
@@ -67,7 +67,6 @@ function addSearching(ev) {
                 DOMTr.append(DOMTd);
             }
             
-            DOMTable.innerHTML = "";
             DOMTable.append(DOMTr);
         }
     }
